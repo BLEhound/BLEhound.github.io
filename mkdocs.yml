@@ -1,0 +1,71 @@
+site_name: BLEhound
+site_description: An open, FEM-boosted BLE sniffer on nRF54 with synchronized multi-channel capture
+site_url: https://blehound.github.io
+repo_url: https://github.com/BLEhound/BLEhound
+repo_name: BLEhound/BLEhound
+copyright: Copyright &copy; 2026 The BLEhound Authors
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle: { icon: material/weather-night, name: Switch to dark mode }
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle: { icon: material/weather-sunny, name: Switch to light mode }
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: suffix
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: zh
+          name: 中文
+          build: true
+          nav_translations:
+            Home: 首页
+            Quick start: 快速上手
+            Build the firmware: 构建固件
+            Use with Wireshark: 配合 Wireshark
+            Multi-channel (3 boards): 多信道(三片)
+            Hardware: 硬件
+            How it works: 工作原理
+            RF test bench: 射频测试台
+
+nav:
+  - Home: index.md
+  - Quick start: quickstart.md
+  - Build the firmware: build-firmware.md
+  - Use with Wireshark: usage-wireshark.md
+  - Multi-channel (3 boards): usage-multichannel.md
+  - Hardware: hardware.md
+  - How it works: architecture.md
+  - RF test bench: rf-test-bench.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc: { permalink: true }
+  - pymdownx.highlight: { anchor_linenums: true }
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tabbed: { alternate_style: true }
