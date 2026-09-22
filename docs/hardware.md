@@ -5,6 +5,8 @@ with an **nRF21540** front-end module (PA/LNA) for improved range and sensitivit
 Licensed under CERN-OHL-S-2.0. Files:
 [`hardware/`](https://github.com/BLEhound/BLEhound/tree/main/hardware).
 
+![Exploded assembly of the 3D-printed case: lid, PCB, tray](img/case_exploded.gif)
+
 ## Which version to use
 
 | Folder | Status | Use it? |
@@ -43,4 +45,6 @@ The first batch has two pin-level errors that block **three-board** mode
 Both are fixed with 11 flying wires on the SWD debug headers (SYNC → P0.04/P0.03,
 straps → P1.08/P1.09). Full wiring diagram and role table:
 [`hardware/v1/README.md`](https://github.com/BLEhound/BLEhound/tree/main/hardware/v1).
+
+![V1 flying-wire rework: SYNC on pin10/pin8, role straps on pin4/pin6](img/flywire_top.en.svg)
 The **V2** revision integrates these fixes into the PCB (routing unfinished). **For working three-board hardware, wait for V2 or use a reworked V1** — a plain V1 build is single-board only.

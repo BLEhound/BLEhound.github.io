@@ -3,6 +3,8 @@
 BLEhound 嗅探器的开源硬件:围绕 **nRF54LM20A** SoC + **nRF21540** 前端模块(PA/LNA,提升距离与灵敏度)的 USB dongle。许可证 CERN-OHL-S-2.0。文件:
 [`hardware/`](https://github.com/BLEhound/BLEhound/tree/main/hardware)。
 
+![3D 打印外壳爆炸装配:盖板、PCB、底壳](img/case_exploded.gif)
+
 ## 用哪个版本
 
 | 文件夹 | 状态 | 用它吗? |
@@ -31,4 +33,7 @@ BLEhound 嗅探器的开源硬件:围绕 **nRF54LM20A** SoC + **nRF21540** 前�
 2. **strap 接法**致板角色重复/错位——没有一片守信道 37。
 
 两者用调试排针 **11 根飞线**修正(SYNC → P0.04/P0.03、strap → P1.08/P1.09)。完整接线图与角色表见
-[`hardware/v1/README.md`](https://github.com/BLEhound/BLEhound/tree/main/hardware/v1)。**V2** 改版把这些修正做进 PCB(布线未完成)。**想要可用的三机硬件,只能等 V2 或用改过的 V1**——原始 V1 只有单片可用。
+[`hardware/v1/README.md`](https://github.com/BLEhound/BLEhound/tree/main/hardware/v1)。
+
+![V1 飞线返工:SYNC pin10/pin8、角色 strap pin4/pin6](img/flywire_top.zh.svg)
+**V2** 改版把这些修正做进 PCB(布线未完成)。**想要可用的三机硬件,只能等 V2 或用改过的 V1**——原始 V1 只有单片可用。
