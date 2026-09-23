@@ -34,6 +34,12 @@ pip install -r BLEhound/host/requirements.txt
 BLEhound/tools/install_extcap.sh
 ```
 
+!!! tip "Windows"
+    Wireshark on Windows needs the bundled `.bat` wrapper — copy
+    `nrf_sniffer_extcap.py`, `nrf_sniffer_extcap.bat` and `tri_aggregator.py` into the
+    Wireshark extcap folder (`%APPDATA%\Wireshark\extcap`). See
+    [Use with Wireshark → Windows](usage-wireshark.md#windows).
+
 ## 3. Capture
 
 1. Restart Wireshark.

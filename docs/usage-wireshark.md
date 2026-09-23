@@ -27,6 +27,20 @@ Restart Wireshark. Two interfaces appear:
 
 The firmware's USB identity: VID `0x1915`, PID `0x520F`, product `nRF BLE Sniffer`.
 
+### Windows
+
+Wireshark on Windows runs `.exe` / `.bat` extcap programs, not `.py` directly, so use
+the bundled `.bat` wrapper:
+
+1. Install Python 3 (tick **Add python.exe to PATH**), then `pip install pyserial`.
+2. Find the extcap folder — Wireshark **Help → About → Folders → Personal Extcap path**
+   (usually `%APPDATA%\Wireshark\extcap`).
+3. Copy `nrf_sniffer_extcap.py`, `nrf_sniffer_extcap.bat`, and `tri_aggregator.py` from
+   `BLEhound/host/` into that folder, then restart Wireshark.
+
+Serial ports appear as `COMx`; usage is otherwise identical. The `tools/*.sh` scripts
+are macOS/Linux only.
+
 ## Options
 
 On the single-board interface you can set:

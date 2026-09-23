@@ -25,6 +25,16 @@ chmod +x ~/.local/lib/wireshark/extcap/nrf_sniffer_extcap.py
 
 固件的 USB 标识：VID `0x1915`，PID `0x520F`，产品名 `nRF BLE Sniffer`。
 
+### Windows
+
+Windows 上 Wireshark 只跑 `.exe` / `.bat` 形式的 extcap,不直接跑 `.py`,所以用随附的 `.bat` 包装器:
+
+1. 装 Python 3(勾选 **Add python.exe to PATH**),执行 `pip install pyserial`。
+2. 找 extcap 目录 —— Wireshark **帮助 → 关于 → 文件夹 → Personal Extcap path**(通常 `%APPDATA%\Wireshark\extcap`)。
+3. 把 `BLEhound/host/` 里的 `nrf_sniffer_extcap.py`、`nrf_sniffer_extcap.bat`、`tri_aggregator.py` 复制进去,重启 Wireshark。
+
+串口在 Windows 上显示为 `COMx`,其余用法相同。`tools/*.sh` 脚本仅限 macOS/Linux。
+
 ## 选项
 
 在单板接口上，你可以设置：

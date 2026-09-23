@@ -33,6 +33,11 @@ pip install -r BLEhound/host/requirements.txt
 BLEhound/tools/install_extcap.sh
 ```
 
+!!! tip "Windows"
+    Windows 上 Wireshark 需要随附的 `.bat` 包装器 —— 把 `nrf_sniffer_extcap.py`、
+    `nrf_sniffer_extcap.bat`、`tri_aggregator.py` 复制进 Wireshark 的 extcap 目录
+    (`%APPDATA%\Wireshark\extcap`)。详见 [配合 Wireshark → Windows](usage-wireshark.md#windows)。
+
 ## 3. 抓包
 
 1. 重启 Wireshark。

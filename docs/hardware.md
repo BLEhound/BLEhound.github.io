@@ -26,6 +26,34 @@ Licensed under CERN-OHL-S-2.0. Files:
 - **Multi-board:** per-board SWD header, plus a SYNC line + inter-board SPI so three
   boards can be time-aligned for [multi-channel capture](usage-multichannel.md).
 
+## Hardware design
+
+```mermaid
+flowchart TB
+  U1["nRF54LM20A #1<br/>+ nRF21540 FEM"] --> HUB["CH334F<br/>4-port USB hub"]
+  U2["nRF54LM20A #2<br/>+ nRF21540 FEM"] --> HUB
+  U3["nRF54LM20A #3<br/>+ nRF21540 FEM"] --> HUB
+  HUB --> USBC["USB-C<br/>bus-powered"]
+  LDO["AP2112K LDO<br/>+5V → +3V3"] -.-> U1
+  LDO -.-> U2
+  LDO -.-> U3
+  U1 <--> |peer SPI| U2
+  U2 <--> |peer SPI| U3
+  U3 <--> |peer SPI| U1
+```
+
+![Assembled BLEhound dongle case (OpenSCAD render)](img/case_assembled.png)
+
+
+The board is a USB dongle: **3× nRF54LM20A + nRF21540 FEM**, 70 × 60 mm, 6-layer with first-order HDI blind vias. Design notes:
+
+- **One nRF21540 FEM (PA/LNA) per SoC**, dual antenna ports on SMA (ANT2 unpopulated by default); the RF-cluster layout follows Nordic's EK/DK reference to avoid matching pitfalls.
+- **Shared time base over one open-drain SYNC line:** any board pulls the line low on an edge; all three hardware-capture the same physical edge — internal pull-up, no external resistor.
+- **Peer-to-peer inter-board SPI:** the three boards are pairwise linked (AB / BC / CA, 4 wires + 1 REQ each), one master port and one slave port per board — no shared bus.
+- **USB 3-in-1:** a CH334F 4-port hub merges the three USB-CDC links onto one USB-C upstream port; the unit is bus-powered (CC 5.1k pulldowns) and an AP2112K LDO turns +5V into +3V3 for the three SoCs, three FEMs, and the hub.
+- RF passives use the reference 0201 footprints (swapping to larger packages breaks the copied coordinates).
+
+
 ## Rebuilding V1
 
 Send `hardware/v1/gerbers/` to a PCB fab (JLCPCB, PCBWay, …); provide `bom.csv` and

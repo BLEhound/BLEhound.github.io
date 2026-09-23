@@ -47,6 +47,24 @@ Source code: [github.com/BLEhound/BLEhound](https://github.com/BLEhound/BLEhound
 
 </div>
 
+## Built with AI
+
+Most of this project — the schematic design, the 3D-printed case, and the software's debugging and testing — was produced by AI, with a human reviewing. It is open-sourced partly because the tool is useful, and partly as an honest sample of how far AI can take a hardware + software project.
+
+That comes with one hard-earned warning:
+
+> **An AI-designed schematic cannot be fully trusted. Verify every detail yourself, pin by pin, against the datasheet.**
+
+V1 of this board is the case study — four bugs AI waved through, later dug out one by one:
+
+- **SYNC on port P2** — but P2 is the one port on this SoC with no GPIOTE, so it cannot do edge capture; the three boards' time bases never aligned.
+- **Wrong strap wiring** — two boards read the same role, so no board guarded channel 37.
+- **USB hub clock** — the CH334F runs on its internal oscillator (XI / pin 4 to GND); an external crystal was added that it does not need.
+- **USB hub power** — on a bus-powered board PSELF (pin 18) must float, but it was tied to GND, which selects self-powered mode and makes the hub fail to enumerate — the whole dongle is then invisible to the host.
+
+None of these are mysterious bugs; they are the cost of not checking every pin against the datasheet. If you build hardware with AI, interrogate every schematic it produces.
+
+
 ## License & ethics
 
 Code: Apache-2.0. Hardware: CERN-OHL-S-2.0. BLEhound includes legacy-pairing analysis

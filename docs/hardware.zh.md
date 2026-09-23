@@ -21,6 +21,25 @@ BLEhound 嗅探器的开源硬件:围绕 **nRF54LM20A** SoC + **nRF21540** 前�
 - **USB hub:** CH334F 把三颗 SoC 的 USB 汇到一个 USB-C 口。用片内振荡器(XI / 4 脚接地)、总线供电(PSELF / 18 脚悬空,绝不接地)——strap 细节见 [V1 README](https://github.com/BLEhound/BLEhound/tree/main/hardware/v1)。
 - **多板:** 每片 SWD 排针,外加 SYNC 线 + 片间 SPI,三片可对齐时基做[多信道捕获](usage-multichannel.md)。
 
+## 硬件设计
+
+板子是 3× nRF54LM20A + nRF21540 FEM 的 USB dongle，70 × 60 mm、6 层、含一阶 HDI 盲孔。几处讲究：
+
+![BLEhound dongle 系统框图](img/fig-hw-block.png)
+
+- **每片 SoC 配一颗 nRF21540 FEM（PA/LNA）**，双天线口用 SMA（ANT2 默认不贴）；射频簇布局布线照抄 Nordic 官方 EK/DK，少踩匹配的坑。
+- **一根开漏 SYNC 线共享时基：** 任一片抓到边沿就把线拉低，三片用硬件同时捕获同一个物理边沿——内部上拉、免外接电阻。
+- **片间对等 SPI：** 三片两两点对点（AB / BC / CA，各 4 线 + 1 根 REQ），每片一主口一从口，不走共享总线。
+- **USB 三合一：** CH334F 4 口 hub 把三片的 USB-CDC 汇到一个 USB-C 上行口；整机总线供电（CC 各 5.1k 下拉），AP2112K LDO 把 +5V 转 +3V3，供三片 SoC + 三颗 FEM + hub。
+- 射频无源件沿用官方 0201 封装（换更大封装，照抄来的坐标就站不住了）。
+
+再配一个参数化 3D 打印外壳（OpenSCAD 源码 + STL + 切片文件都在）：
+
+![装配后的 dongle 外壳](img/case_assembled.png)
+
+![外壳爆炸图](img/case_exploded.png)
+
+
 ## 复制 V1
 
 把 `hardware/v1/gerbers/` 发给 PCB 厂(JLCPCB、PCBWay 等);贴片提供 `bom.csv` 与 `pick-and-place/`。设计源是 `hardware/v1/jlceda-source/` 里的嘉立创专业版工程(`.epro2` = 真理源;`.epro` = KiCad 能导入的格式,经**文件 → 导入 → EasyEDA/JLCEDA Pro Project**,仅 GUI 可用)。
