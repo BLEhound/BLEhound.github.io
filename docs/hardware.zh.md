@@ -37,6 +37,8 @@ BLEhound 嗅探器的开源硬件:围绕 **nRF54LM20A** SoC + **nRF21540** 前�
 
 ![装配后的 dongle 外壳](img/case_assembled.png)
 
+![打印装配完成的外壳实物，已装上三根 SMA 天线](img/dongle_photo.webp){ width="420" }
+
 ![外壳爆炸图](img/case_exploded.png)
 
 

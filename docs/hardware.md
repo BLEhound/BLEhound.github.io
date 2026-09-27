@@ -44,6 +44,8 @@ flowchart TB
 
 ![Assembled BLEhound dongle case (OpenSCAD render)](img/case_assembled.png)
 
+![The printed case, assembled, with the three SMA antennas fitted](img/dongle_photo.webp){ width="420" }
+
 
 The board is a USB dongle: **3× nRF54LM20A + nRF21540 FEM**, 70 × 60 mm, 6-layer with first-order HDI blind vias. Design notes:
 

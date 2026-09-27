@@ -12,6 +12,8 @@ Source code: [github.com/BLEhound/BLEhound](https://github.com/BLEhound/BLEhound
 
 ![BLEhound](img/cover.png)
 
+![BLEhound dongle in its 3D-printed case, three SMA antennas](img/dongle_photo.webp){ width="420" }
+
 ## Why BLEhound
 
 - **Synchronized multi-channel capture (three boards).** One radio can only listen on

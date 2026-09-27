@@ -8,6 +8,8 @@ BLEhound 是一款从零打造的 BLE 嗅探器：包含固件、一个 Wireshar
 
 ![BLEhound](img/cover.png)
 
+![BLEhound dongle 实物：3D 打印外壳与三根 SMA 天线](img/dongle_photo.webp){ width="420" }
+
 ## 为什么选择 BLEhound
 
 - **同步多信道抓包（三块板）。** 单个射频一次只能监听一个信道，因此单台嗅探器可能会漏掉落在另一个广播信道上的 `CONNECT_IND`。BLEhound 使用三块板分别守护 37 / 38 / 39 信道，通过硬件 SYNC 同步线加板间 SPI 实现时间对齐，再由上位机合并为**一个** Wireshark 接口。已在真实硬件上完成端到端验证。
