@@ -43,6 +43,7 @@ plugins:
           nav_translations:
             Home: 首页
             Quick start: 快速上手
+            BLEhound Analyzer: BLEhound Analyzer 上位机
             Build the firmware: 构建固件
             Use with Wireshark: 配合 Wireshark
             Multi-channel (3 boards): 多信道(三片)
@@ -53,6 +54,7 @@ plugins:
 nav:
   - Home: index.md
   - Quick start: quickstart.md
+  - BLEhound Analyzer: analyzer.md
   - Build the firmware: build-firmware.md
   - Use with Wireshark: usage-wireshark.md
   - Multi-channel (3 boards): usage-multichannel.md

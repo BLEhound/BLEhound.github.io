@@ -10,6 +10,8 @@ firmware), which is what enables connection following, encrypted-link capture, a
 
 Source code: [github.com/BLEhound/BLEhound](https://github.com/BLEhound/BLEhound)
 
+![BLEhound](img/cover.png)
+
 ## Why BLEhound
 
 - **Synchronized multi-channel capture (three boards).** One radio can only listen on
@@ -40,6 +42,7 @@ Source code: [github.com/BLEhound/BLEhound](https://github.com/BLEhound/BLEhound
 
 - :material-rocket-launch: **[Quick start](quickstart.md)** — from zero to packets in Wireshark
 - :material-chip: **[Build the firmware](build-firmware.md)** — west / nRF Connect SDK
+- :material-monitor: **[BLEhound Analyzer](analyzer.md)** — the desktop app: live devices, connection view, decryption, firmware update
 - :material-shark: **[Use with Wireshark](usage-wireshark.md)** — the extcap plugin
 - :material-access-point-network: **[Multi-channel](usage-multichannel.md)** — three-board setup
 - :material-developer-board: **[Hardware](hardware.md)** — order & assemble the dongle

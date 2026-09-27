@@ -1,5 +1,9 @@
 # Use with Wireshark
 
+!!! tip "BLEhound Analyzer"
+    The [BLEhound Analyzer](analyzer.md) desktop app talks to the dongles directly and needs
+    none of the setup on this page. This page is for using the dongle with a stock Wireshark.
+
 BLEhound talks to Wireshark through an [extcap](https://www.wireshark.org/docs/man-pages/extcap.html)
 plugin. Wireshark calls the plugin to list interfaces and options, then streams
 packets from it as PCAP (`LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR`).

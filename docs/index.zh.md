@@ -28,6 +28,7 @@ BLEhound 是一款从零打造的 BLE 嗅探器：包含固件、一个 Wireshar
 
 - :material-rocket-launch: **[快速上手](quickstart.md)** —— 从零到在 Wireshark 中看到数据包
 - :material-chip: **[构建固件](build-firmware.md)** —— west / nRF Connect SDK
+- :material-monitor: **[BLEhound Analyzer 上位机](analyzer.md)** —— 桌面程序：实时设备、连接视图、解密、固件升级
 - :material-shark: **[配合 Wireshark 使用](usage-wireshark.md)** —— extcap 插件
 - :material-access-point-network: **[多信道](usage-multichannel.md)** —— 三板搭建
 - :material-developer-board: **[硬件](hardware.md)** —— 订购并组装 dongle

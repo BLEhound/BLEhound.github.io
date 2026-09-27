@@ -1,5 +1,9 @@
 # 配合 Wireshark 使用
 
+!!! tip "BLEhound Analyzer 上位机"
+    [BLEhound Analyzer](analyzer.md) 桌面程序直接和 dongle 通信，不需要本页的任何配置。
+    本页介绍的是在原版 Wireshark 里使用 dongle 的方法。
+
 BLEhound 通过一个 [extcap](https://www.wireshark.org/docs/man-pages/extcap.html) 插件与 Wireshark 通信。Wireshark 调用该插件来列出接口和选项，然后从中以 PCAP（`LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR`）形式串流数据包。
 
 ## 安装
